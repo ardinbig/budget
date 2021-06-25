@@ -14,7 +14,7 @@ class BarChart extends StatelessWidget {
     });
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
           const Text(
@@ -30,20 +30,18 @@ class BarChart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                iconSize: 30.0,
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {},
               ),
               const Text(
-                "Nov 10, 2019 - Nov 16, 2019",
+                "Nov 10 - Nov 16",
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 1.0,
                 ),
               ),
               IconButton(
-                iconSize: 30.0,
                 icon: const Icon(Icons.arrow_forward),
                 onPressed: () {},
               ),
@@ -120,13 +118,14 @@ class Bar extends StatelessWidget {
         Text(
           "\$${amountSpent.toStringAsFixed(2)}",
           style: TextStyle(
+            fontSize: 12.0,
             fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 5.0),
         Container(
           height: barHeight,
-          width: 16.0,
+          width: 14.0,
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(6.0),
@@ -136,7 +135,7 @@ class Bar extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            fontSize: 14.0,
+            fontSize: 12.0,
             fontWeight: FontWeight.w600,
           ),
         ),
