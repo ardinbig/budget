@@ -14,6 +14,58 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  Widget _buildExpenses() {
+    List<Widget> expenseList = [];
+    widget.category.expenses.forEach((expense) {
+      expenseList.add(
+        Container(
+          height: 80.0,
+          width: double.infinity,
+          alignment: Alignment.center,
+          margin: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+            vertical: 8.0,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                offset: const Offset(0, 2),
+                blurRadius: 6.0,
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  expense.name,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "\$${expense.cost.toStringAsFixed(2)}",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    });
+    return Column(children: expenseList);
+  }
+
   @override
   Widget build(BuildContext context) {
     double totalAmountSpent = 0;
@@ -37,6 +89,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         ],
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -73,6 +126,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 ),
               ),
             ),
+            _buildExpenses(),
           ],
         ),
       ),
