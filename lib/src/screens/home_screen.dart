@@ -1,3 +1,4 @@
+import 'package:budget/src/constants/constant.dart';
 import 'package:flutter/material.dart';
 
 import '/src/data/data.dart';
@@ -37,13 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              offset: Offset(0, 2),
-              blurRadius: 6.0,
-            ),
-          ],
+          boxShadow: [kBoxShadow],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,18 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text(
                   category.name,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: kTextStyleSemiBold,
                 ),
                 Text(
                   "\$${(category.maxAmount - totalAmountSpent).toStringAsFixed(2)}"
                   " / \$${category.maxAmount.toStringAsFixed(2)}",
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: kTextStyleSemiBold.copyWith(fontSize: 14.0),
                 ),
               ],
             ),
@@ -138,13 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 6.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          offset: Offset(0, 2),
-                          blurRadius: 6.0,
-                        ),
-                      ],
+                      boxShadow: [kBoxShadow],
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: BarChart(weeklySpending),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/src/constants/constant.dart';
+
 class BarChart extends StatelessWidget {
   const BarChart(this.expenses, {Key? key}) : super(key: key);
 
@@ -17,13 +19,9 @@ class BarChart extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
-          const Text(
+          Text(
             "Weekly Spending",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1.0,
-            ),
+            style: kTextStyleBold.copyWith(letterSpacing: 1.0),
           ),
           const SizedBox(height: 5.0),
           Row(
@@ -33,11 +31,10 @@ class BarChart extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {},
               ),
-              const Text(
+              Text(
                 "Nov 10 - Nov 16",
-                style: TextStyle(
+                style: kTextStyleSemiBold.copyWith(
                   fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
                   letterSpacing: 1.0,
                 ),
               ),
@@ -117,10 +114,7 @@ class Bar extends StatelessWidget {
       children: [
         Text(
           "\$${amountSpent.toStringAsFixed(2)}",
-          style: TextStyle(
-            fontSize: 12.0,
-            fontWeight: FontWeight.w600,
-          ),
+          style: kTextStyleSemiBold.copyWith(fontSize: 12.0),
         ),
         const SizedBox(height: 5.0),
         Container(
@@ -134,10 +128,7 @@ class Bar extends StatelessWidget {
         const SizedBox(height: 7.0),
         Text(
           label,
-          style: TextStyle(
-            fontSize: 12.0,
-            fontWeight: FontWeight.w600,
-          ),
+          style: kTextStyleSemiBold.copyWith(fontSize: 12.0),
         ),
       ],
     );

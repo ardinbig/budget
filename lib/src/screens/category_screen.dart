@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants/constant.dart';
 import '/src/helpers/color_helper.dart';
 import '/src/models/category_model.dart';
 import '/src/widgets/radial_painter.dart';
@@ -29,13 +30,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                offset: const Offset(0, 2),
-                blurRadius: 6.0,
-              ),
-            ],
+            boxShadow: [kBoxShadow],
           ),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -44,18 +39,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
               children: [
                 Text(
                   expense.name,
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: kTextStyleBold,
                 ),
                 Text(
                   "\$${expense.cost.toStringAsFixed(2)}",
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: kTextStyleSemiBold.copyWith(color: Colors.red),
                 ),
               ],
             ),
@@ -99,13 +87,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    offset: const Offset(0, 2),
-                    blurRadius: 6.0,
-                  ),
-                ],
+                boxShadow: [kBoxShadow],
               ),
               child: CustomPaint(
                 foregroundPainter: RadialPainter(
@@ -118,10 +100,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: Text(
                     "\$${amountLeft.toStringAsFixed(2)}"
                     "/ \$${widget.category.maxAmount}",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: kTextStyleSemiBold,
                   ),
                 ),
               ),
